@@ -10,6 +10,13 @@ export default class HomeComponent extends Component {
         status: false
     }
 
+    deleteDepartamento = (idDepartamento) => {
+        this.service.deleteDepartamento(idDepartamento).then((result) => {
+            //QUEREMOS RECARGAR LOS DATOS AL ELIMINAR
+            this.loadDepartamentos();
+        })
+    }
+
     loadDepartamentos = () => {
         this.service.getDepartamentos().then((result) => {
             this.setState({
@@ -42,6 +49,12 @@ export default class HomeComponent extends Component {
                                     <td>{dept.nombre}</td>
                                     <td>{dept.localidad}</td>
                                     <td>
+                                        <button className='btn btn-danger'
+                                        onClick={() => {
+                                            this.deleteDepartamento(dept.numero)
+                                        }}>
+                                            Delete
+                                        </button>
                                         <NavLink className="btn btn-info"
                                         to={"/update/" + dept.numero
                                             + "/" + dept.nombre
