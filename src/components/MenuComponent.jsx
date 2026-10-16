@@ -20,6 +20,9 @@ export default class MenuComponent extends Component {
                         </NavLink>
                     </li>
                     <li className="nav-item">
+                        <NavLink className="nav-link" to="/hospitales">Hospitales</NavLink>
+                    </li>                      
+                    <li className="nav-item">
                         <NavLink className="nav-link" to="/create">Create</NavLink>
                     </li>
                     <li className="nav-item">

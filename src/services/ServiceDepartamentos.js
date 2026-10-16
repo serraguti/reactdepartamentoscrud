@@ -13,6 +13,22 @@ export default class ServiceDepartamentos {
         })
     }
 
+    async getDatos() {
+        let url = Global.urlApiDepartamentos;
+        let request = "....."
+        try{
+            //SI TODO VA BIEN, REALIZA ESTE CODIGO
+            //DEBEMOS CAPTURAR LOS DATOS DEL API CON GET
+            let response = await axios.get(url + request);
+            //TENEMOS LOS DATOS EN RESPONSE Y HA REALIZADO LA ACCION
+            return response.data;            
+        }catch (error){
+            //AQUI ENTRA SI TENEMOS UN ERROR
+            //SI QUEREMOS PROPAGAR EL ERROR HACIA EL COMPONENT
+            throw error;
+        }
+    }    
+
     insertDepartamento(departamento){
         return new Promise(function(resolve, reject){
             let url = Global.urlApiDepartamentos;
